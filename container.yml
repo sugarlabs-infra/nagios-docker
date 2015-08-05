@@ -1,0 +1,5 @@
+ports:
+ - 8081:80
+
+memory: 256m
+cpu: 20
