@@ -29,7 +29,6 @@ smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd\n\
 smtp_use_tls = yes\n\
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt\n'\
 >> /etc/postfix/main.cf
-RUN /etc/init.d/postfix reload
 
 VOLUME /etc/nagios3
 VOLUME /usr/lib/nagios/plugins 
@@ -37,4 +36,4 @@ VOLUME /usr/lib/nagios/plugins
 CMD /etc/init.d/apache2 start; \
     /etc/init.d/nagios3 start; \
     /etc/init.d/postfix start; \
-    tailf /var/log/nagios3/nagios.log
+    tail -F /var/log/nagios3/nagios.log
